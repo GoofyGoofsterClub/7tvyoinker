@@ -31,6 +31,13 @@ class Yoink(commands.Cog):
             f"https://api.7tv.app/v2/emotes/{emoteid}").json()
         emotename = emote["name"]
 
+        # get server emotes and check if emote already exists
+        emotes = await ctx.guild.fetch_emojis()
+        for emote in emotes:
+            if emote.name == emotename:
+                return await ctx.send("That emote already exists in this server.")
+
+
         # download emote
         emote = requests.get(emoteurl)
 
