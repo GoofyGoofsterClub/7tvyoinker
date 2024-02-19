@@ -1,0 +1,8 @@
+version: '3.4'
+services:
+  currency-bot:
+    image: nekopavel/7tvyoinker-bot:latest
+    container_name: 7tvyoinker-bot
+    restart: always
+    environment:
+    - TOKEN=yourdiscordtokenhere
