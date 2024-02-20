@@ -28,7 +28,7 @@ class Yoink(commands.Cog):
         emoteurl = f"https://cdn.7tv.app/emote/{emoteid}/1x.gif"
 
         emote = requests.get(
-            f"https://api.7tv.app/v2/emotes/{emoteid}").json()
+            f"https://7tv.io/v3/emotes/{emoteid}").json()
         emotename = emote["name"]
 
         # get server emotes and check if emote already exists
