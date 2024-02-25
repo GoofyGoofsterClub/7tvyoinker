@@ -25,11 +25,11 @@ class Yoink(commands.Cog):
             return await ctx.send("That's not a 7TV emote.")
 
         emoteid = emoteregex.sub(r"\1", message)
-        emoteurl = f"https://cdn.7tv.app/emote/{emoteid}/1x.gif"
 
         emote = requests.get(
             f"https://7tv.io/v3/emotes/{emoteid}").json()
         emotename = emote["name"]
+        emoteurl = f"https://cdn.7tv.app/emote/{emoteid}/2x.{'gif' if emote['animated'] else 'png'}"
 
         # get server emotes and check if emote already exists
         emotes = await ctx.guild.fetch_emojis()
